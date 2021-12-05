@@ -1,0 +1,99 @@
+.portfolio-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.portfolio-list__item {
+  width: 370px;
+  overflow: hidden;
+
+  transition-property: box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:not(:nth-child(3n)) {
+    margin-right: 30px;
+  }
+  &:nth-child(-n + 6) {
+    margin-bottom: 30px;
+  }
+
+  &:hover,
+  &:focus {
+    box-shadow: 1px 4px 6px #00000029, 0px 4px 4px #0000000f, 0px 1px 1px #0000001f;
+  }
+}
+
+.product-thumb {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    opacity: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(33, 150, 243, 0.9);
+    transform: translateY(100%);
+    transition-property: transform, opacity;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .product-thumb__text {
+    position: absolute;
+
+    top: 50%;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 63px 24px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.55;
+    letter-spacing: 0.03em;
+    color: $primary-white-color;
+
+    transform: translateY(50%);
+    transition-property: transform, opacity;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+.portfolio-list__item:hover .product-thumb__text {
+  opacity: 1;
+  transform: translateY(-50%);
+}
+.portfolio-list__item:hover .product-thumb::before {
+  content: '';
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.description {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 24px;
+  padding-right: 24px;
+  border: 1px solid #eeeeee;
+
+  &__headline {
+    margin-top: 0;
+    margin-bottom: 4px;
+
+    color: $title-text-color;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 2;
+    letter-spacing: 0.06em;
+  }
+
+  &__text {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+    line-height: 1.87;
+  }
+}
