@@ -748,7 +748,7 @@ ul {
 
 .label__input:checked + .label__checkbox {
   border-color: transparent;
-  background-color: icon-accent-color;
+  background-color: #2196f3;
   background-image: url("../images/icon-check.svg");
   background-repeat: no-repeat;
   background-size: contain;
